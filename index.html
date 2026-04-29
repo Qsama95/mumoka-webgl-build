@@ -24,6 +24,24 @@
       </div>
     </div>
     <script>
+      (function () {
+        var LOCAL = 'http://localhost:8080/';
+        var REMOTE = 'https://qsama95.github.io/mumoka-webgl-build/';
+        function rewrite(url) {
+          return (typeof url === 'string' && url.startsWith(LOCAL))
+            ? REMOTE + url.slice(LOCAL.length)
+            : url;
+        }
+        var _fetch = window.fetch;
+        window.fetch = function (url, opts) { return _fetch(rewrite(url), opts); };
+        var _open = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function (method, url) {
+          arguments[1] = rewrite(url);
+          return _open.apply(this, arguments);
+        };
+      })();
+    </script>
+    <script>
       var canvas = document.querySelector("#unity-canvas");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
