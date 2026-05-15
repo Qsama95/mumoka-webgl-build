@@ -7,6 +7,7 @@
     <type fullname="DocEntryRecord" preserve="nothing" serialized="true" />
     <type fullname="DocEntryRecord/TopicScoreRecord" preserve="nothing" serialized="true" />
     <type fullname="TopicImageEntry" preserve="nothing" serialized="true" />
+    <type fullname="TopicSemanticMetadata" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
